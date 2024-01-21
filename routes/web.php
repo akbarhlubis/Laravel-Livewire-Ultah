@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/test', function () {
     return view('test');
 });
+
+Route::get('/', App\Livewire\Card\Create::class)->name('card.create');
+Route::get('/index', App\Livewire\Card\Index::class)->name('card.index');

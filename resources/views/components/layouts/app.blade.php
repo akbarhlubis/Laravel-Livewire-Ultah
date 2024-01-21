@@ -6,7 +6,11 @@
         <title>{{ $title ?? 'Page Title' }}</title>
         @livewireStyles
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-
+        <style>
+            body {
+                background: linear-gradient(180deg, #FEDE67 0%, #FDBF36 100%);
+            }
+        </style>
     </head>
     <body>
         {{ $slot }}
