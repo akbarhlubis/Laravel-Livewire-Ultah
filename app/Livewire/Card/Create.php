@@ -32,7 +32,12 @@ class Create extends Component
             'message' => 'required',
         ]);
 
-        $image = $this->image->store('images', 'public');
+        // if image is not empty, then upload to storage/app/public
+        if ($this->image != '') {
+            $image = $this->image->store('images', 'public');
+        } else {
+            $image = '';
+        }
         $slug = 'hbd-' . Str::slug($this->fullname);
 
         \App\Models\Card::create([
@@ -44,6 +49,7 @@ class Create extends Component
         ]);
 
         session()->flash('message', 'Kartu Ucapan Berhasil di Buat!, Silahkan Share Link Berikut: ' . url('/card/' . $slug));
+        session()->flash('message', 'Kartu Ucapan Berhasil di Buat!, Silahkan Share Link Berikut: . <a href="'.url('/' . $slug).'">Klik Disini</a>');
         $this->reset();
     }
 
