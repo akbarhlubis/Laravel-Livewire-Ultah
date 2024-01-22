@@ -15,6 +15,7 @@ class Create extends Component
     
     public $fullname;
 
+    #[Rule('max:2048', message: 'Ukuran File Maksimal 2MB')]
     public $image;
 
     public $age;
@@ -27,14 +28,13 @@ class Create extends Component
     {
         $this->validate([
             'fullname' => 'required',
-            'image' => 'required|image|max:1024',
             'age' => 'required',
             'message' => 'required',
         ]);
 
         $image = $this->image->store('images', 'public');
-        $slug = Str::slug($this->fullname);
-        
+        $slug = 'hbd-' . Str::slug($this->fullname);
+
         \App\Models\Card::create([
             'fullname' => $this->fullname,
             'image' => $image,
@@ -43,9 +43,8 @@ class Create extends Component
             'slug' => $slug
         ]);
 
-        session()->flash('message', 'Card successfully created.');
-
-        return redirect()->route('card.index');
+        session()->flash('message', 'Kartu Ucapan Berhasil di Buat!, Silahkan Share Link Berikut: ' . url('/card/' . $slug));
+        $this->reset();
     }
 
     public function render()
