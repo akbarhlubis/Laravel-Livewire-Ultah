@@ -8,7 +8,7 @@ Create Post - Belajar Livewire 3 di SantriKoding.com
         <!-- flash message -->
         @if (session()->has('message'))
         <div class="alert alert-success">
-            {{ session('message') }}
+            {!! session('message') !!}
         </div>
         @endif
         <!-- end flash message -->
