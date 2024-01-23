@@ -18,5 +18,5 @@ Route::get('/test', function () {
 });
 
 Route::get('/', App\Livewire\Card\Create::class)->name('card.create');
-Route::get('/{slug}', App\Livewire\Card\Show::class)->name('card.show');
-Route::get('/index', App\Livewire\Card\Index::class)->name('card.index');
+Route::get('/card/{slug}', App\Livewire\Card\Show::class)->name('card.show');
+// Route::get('/index', App\Livewire\Card\Index::class)->name('card.index');
