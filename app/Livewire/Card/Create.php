@@ -49,8 +49,8 @@ class Create extends Component
             'slug' => $slug,
         ]);
 
-        session()->flash('message', 'Kartu Ucapan Berhasil di Buat!, Silahkan Share Link Berikut: . <a href="'.url('/card/' . $slug).'">'.url('/card/' . $slug).'</a>');
         $this->reset();
+        session()->flash('message', 'Kartu Ucapan Berhasil di Buat!, Silahkan Share Link Berikut: . <a href="'.url('/card/' . $slug).'">'.url('/card/' . $slug).'</a>');
     }
 
     public function render()
