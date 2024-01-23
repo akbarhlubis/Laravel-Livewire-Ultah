@@ -70,7 +70,7 @@ Create Post - Belajar Livewire 3 di SantriKoding.com
                         <div class="d-grid gap-2">
                             <button class="btn btn-warning" type="submit">Buat Kartu Ucapan</button>
                             <button class="btn btn-outline-warning" type="button">Reset</button>
-                          </div>
+                        </div>
 
                     </form>
                 </div>
@@ -78,3 +78,7 @@ Create Post - Belajar Livewire 3 di SantriKoding.com
         </div>
     </div>
 </div>
+
+@push('AdditionalCSS')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+@endpush

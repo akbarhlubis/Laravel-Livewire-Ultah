@@ -38,18 +38,18 @@ class Create extends Component
         } else {
             $image = '';
         }
-        $slug = 'hbd-' . Str::slug($this->fullname);
+        $slug = 'hbd-' . Str::slug($this->fullname). '-' . Str::random(5);
 
-        \App\Models\Card::create([
+        // create or update data in database
+        \App\Models\Card::updateOrCreate(['slug' => $slug], [
             'fullname' => $this->fullname,
             'image' => $image,
             'age' => $this->age,
             'message' => $this->message,
-            'slug' => $slug
+            'slug' => $slug,
         ]);
 
-        session()->flash('message', 'Kartu Ucapan Berhasil di Buat!, Silahkan Share Link Berikut: ' . url('/card/' . $slug));
-        session()->flash('message', 'Kartu Ucapan Berhasil di Buat!, Silahkan Share Link Berikut: . <a href="'.url('/' . $slug).'">Klik Disini</a>');
+        session()->flash('message', 'Kartu Ucapan Berhasil di Buat!, Silahkan Share Link Berikut: . <a href="'.url('/card/' . $slug).'">'.url('/card/' . $slug).'</a>');
         $this->reset();
     }
 
