@@ -74,6 +74,7 @@
                 align-items: center;
                 height: 100vh;
                 gap: 20px;
+                padding: 20px;
             }
 
             .wrapper {
@@ -160,7 +161,6 @@
             @media screen and (max-width: 360px) {
                 .page {
                     flex-direction: column-reverse;
-                    padding: 20px;
                 }
 
                 .wrapper,
