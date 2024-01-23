@@ -23,6 +23,7 @@ Data cards - Belajar Livewire 3 di SantriKoding.com
                                 <th scope="col">Image</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Content</th>
+                                <th scope="col">slug</th>
                                 <th scope="col" style="width: 15%">Actions</th>
                             </tr>
                         </thead>
@@ -30,10 +31,11 @@ Data cards - Belajar Livewire 3 di SantriKoding.com
                             @forelse ($cards as $card)
                             <tr>
                                 <td class="text-center">
-                                    <img src="{{ asset('/storage/cards/'.$card->image) }}" class="rounded" style="width: 150px">
+                                    <img src="{{ $card->image }}" class="rounded" style="width: 150px">
                                 </td>
-                                <td>{{ $card->title }}</td>
-                                <td>{!! $card->content !!}</td>
+                                <td>{{ $card->fullname }}</td>
+                                <td>{!! $card->message !!}</td>
+                                <td>{!! $card->slug !!}</td>
                                 <td class="text-center">
                                     <a href="/edit/{{ $card->id }}" wire:navigate class="btn btn-sm btn-primary">EDIT</a>
                                     <button class="btn btn-sm btn-danger">DELETE</button>
