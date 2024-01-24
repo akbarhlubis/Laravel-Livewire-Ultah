@@ -4,21 +4,19 @@
             <div class="wrapper" id="wrapper">
                 <div class="front">
                     <h1>Hepi Bestday</h1>
-                    <span>ke {{$card->age}}</span>
-                    <h1>{{$card->fullname}}</h1>
+                    <span>ke {{ $card->age }}</span>
+                    <h1>{{ $card->fullname }}</h1>
                     <span class="flipper">Click to Flip</span>
                 </div>
                 <div class="back">
-                    <p>{{$card->message}}</p>
+                    <p>{{ $card->message }}</p>
                 </div>
             </div>
             <div class="second-wrapper hidden" id="second-wrapper">
-                <img class="front"
-                    src="{{$card->image}}"
-                    alt="" srcset="">
+                <img class="front" src="{{ $card->image }}" alt="" srcset="">
             </div>
         </div>
-        <img id="illustration" src="{{asset('background-complete.svg')}}" alt="" srcset="">
+        <img id="illustration" src="{{ asset('background-complete.svg') }}" alt="" srcset="">
     @else
         <h1>Card not found</h1>
         <div class="alert alert-danger">
@@ -44,11 +42,11 @@
                 font-weight: normal;
                 padding: 20px;
             }
-            #illustration{
+
+            #illustration {
                 bottom: 0px;
                 position: fixed;
-                visibility: visible
-                transform: translatey(-100%);
+                visibility: visible transform: translatey(-100%);
                 width: 100%;
                 height: 100%;
                 /* object-fit: cover; */
@@ -56,14 +54,16 @@
                 transition: all 0.7s;
             }
 
-            .back p{
+            .back p {
                 font-size: 1.5rem;
             }
-            #illustration.hidden{
+
+            #illustration.hidden {
                 visibility: hidden;
                 opacity: 0;
                 transform: translatey(200%);
             }
+
             h1 {
                 font-size: 3rem;
             }
@@ -139,6 +139,16 @@
                 opacity: 100;
                 transition: all 0.5s ease-in-out;
                 transform: translatex(0) box-shadow: 1px 4px 20px rgba(99, 99, 99, 0.5);
+            }
+
+            .second-wrapper::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 39.5%, rgba(255, 255, 255, 0.80) 94%);
             }
 
             .second-wrapper img {
